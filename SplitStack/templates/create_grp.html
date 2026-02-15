@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Group</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='create_grp.css') }}">
+</head>
+<body>
+
+    <!-- ⭐ Background Stars -->
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
+    <!-- ✅ Main Container -->
+    <div class="container">
+        <h1>Create a Group</h1>
+
+        <!-- ✅ FORM -->
+        <form method="POST" action="{{ url_for('create_group') }}">
+
+            <!-- Group Name -->
+            <div class="form-group">
+                <label for="group-name">Group Name:</label>
+                <input 
+                    type="text" 
+                    id="group-name" 
+                    name="group_name" 
+                    placeholder="Enter group name" 
+                    required
+                >
+            </div>
+
+            <!-- ✅ Group Description (FIXED) -->
+            <div class="form-group">
+                <label for="group-description">Group Description:</label>
+                <textarea 
+                    id="group-description" 
+                    name="description" 
+                    placeholder="Enter group description" 
+                    rows="3"
+                    required
+                ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Create Group</button>
+        </form>
+
+        <!-- ✅ Flash Messages -->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages" style="margin-top: 20px;">
+                    {% for message in messages %}
+                        <p style="
+                            color: white;
+                            background: #2ecc71;
+                            padding: 10px;
+                            border-radius: 6px;
+                            text-align: center;
+                            font-weight: bold;
+                        ">
+                            {{ message }}
+                        </p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+    </div>
+
+</body>
+</html>

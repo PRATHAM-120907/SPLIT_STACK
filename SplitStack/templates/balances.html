@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Group Balances</title>
+    <style>
+        body { font-family: Arial; background:#111; color:white; padding:20px; }
+        .box { background:#222; padding:15px; border-radius:8px; margin-bottom:15px; }
+        .positive { color:#25d366; }
+        .negative { color:#ff6b6b; }
+    </style>
+</head>
+<body>
+
+<h2>Balances</h2>
+
+<div class="box">
+{% for m in members %}
+    <p>
+        {{ m.name }} :
+        {% if balances[m.id] >= 0 %}
+            <span class="positive">gets ₹{{ balances[m.id] }}</span>
+        {% else %}
+            <span class="negative">owes ₹{{ -balances[m.id] }}</span>
+        {% endif %}
+    </p>
+{% endfor %}
+</div>
+
+<h2>Who Owes Whom</h2>
+
+<div class="box">
+{% for s in settlements %}
+    <p>{{ s.from }} → {{ s.to }} : ₹{{ s.amount }}</p>
+{% else %}
+    <p>All settled 🎉</p>
+{% endfor %}
+</div>
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title></title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- name of the project -->
+  <div class="brand-banner">
+  <h1 class="brand-title">SPLIT STACK</h1>
+</div>
+
+
+  <div class="controls">
+    <button id="pauseBtn" class="control-btn" onclick="toggleAnimation()">⏸️ Pause</button>
+    <button class="control-btn" onclick="resetPosition()">🔄 Reset</button>
+    <button class="control-btn" onclick="changeDirection()">↔️ Direction</button>
+    <a class="start",  href="{{url_for('login')}}" >GET  STARTED</a
+    >
+    
+  </div>
+
+  <div class="speed-indicator">
+    Speed: <span id="speedValue">120</span> px/s
+  </div>
+    
+
+  <div class="container">
+    <canvas id="particleCanvas"></canvas>
+    <canvas id="scannerCanvas"></canvas>
+
+    <div class="scanner"></div>
+
+    <div class="card-stream" id="cardStream">
+      <div class="card-line" id="cardLine"></div>
+    </div>
+  </div>
+
+  <div class="inspiration-credit">
+    copyright © 2025 Pratham
+    <a href="https://evervault.com/" target="_blank"></a>
+  </div>
+
+  <!-- Three.js from CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Local JS file -->
+  <script src="{{ url_for('static', filename='style.js') }}"></script>
+</body>
+</html>
+
+

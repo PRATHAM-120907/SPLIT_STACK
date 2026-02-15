@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent scrollbars */
+    position: relative;
+}
+
+/* Star particles animation */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Generate multiple stars */
+.star:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.star:nth-child(2) { top: 20%; left: 20%; animation-delay: 0.5s; }
+.star:nth-child(3) { top: 30%; left: 30%; animation-delay: 1s; }
+.star:nth-child(4) { top: 40%; left: 40%; animation-delay: 1.5s; }
+.star:nth-child(5) { top: 50%; left: 50%; animation-delay: 2s; }
+.star:nth-child(6) { top: 60%; left: 60%; animation-delay: 2.5s; }
+.star:nth-child(7) { top: 70%; left: 70%; animation-delay: 0s; }
+.star:nth-child(8) { top: 80%; left: 80%; animation-delay: 0.5s; }
+.star:nth-child(9) { top: 90%; left: 90%; animation-delay: 1s; }
+.star:nth-child(10) { top: 15%; left: 85%; animation-delay: 1.5s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+}
+
+.container {
+    position: relative;
+    z-index: 1; /* Above stars */
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #ccc;
+}
+
+#members-list {
+    margin-top: 20px;
+}
+
+#members-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#members-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid #fff;
+}

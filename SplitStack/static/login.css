@@ -1,0 +1,367 @@
+:root {
+  --primary: #0e0e0e;
+  --secondary: #00000045;
+  --accent: #FF5E5B;
+  --shadow: 8px 8px 0px var(--primary);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Courier New', monospace;
+}
+
+body {
+  background-color: var(--secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ffffff;
+  padding: 40px 30px;
+
+}
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: -6px;
+  bottom: -6px;
+  border: 1px solid var(--primary);
+  z-index: -1;
+  border-radius: 12px;
+}
+
+h1 {
+  color: var(--primary);
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  position: relative;
+  color: white;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid var(--primary);
+  background-color: var(--secondary);
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+input:focus {
+  box-shadow: 4px 4px 0px var(--primary);
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--accent);
+  color: var(--secondary);
+  border: 2px solid var(--primary);
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s;
+}
+
+button:hover {
+  box-shadow: 4px 4px 0px var(--primary);
+  transform: translate(-2px, -2px);
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.divider::before, .divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 2px solid var(--primary);
+  margin: 0 10px;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.social-btn {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.social-btn:hover {
+  box-shadow: 4px 4px 0px var(--primary);
+  transform: translate(-2px, -2px);
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--primary);
+}
+
+.footer a {
+  color: var(--primary);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+
+
+/* register page area  */
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #333; /* Dark gray background */
+    color: #000; /* Black text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.container {
+    background-color: #f9f9f9; /* Light background for the form container to contrast */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+h2 {
+    margin-bottom: 20px;
+    color: #000;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+input:focus {
+    border-color: #ff0000; /* Red focus for inputs */
+}
+button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+.signup-btn {
+    background-color: #ff0000; /* Red button */
+    color: #fff;
+}
+.signup-btn:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    transform: scale(1.05); /* Slight scale up */
+}
+.social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.social-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.social-btn:hover {
+    background-color: #bbb; /* Darker gray on hover */
+    transform: scale(1.1); /* Slight scale up */
+}
+.signin-link {
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.signin-link:hover {
+    color: #ff0000; /* Red on hover */
+    text-decoration: underline;
+}
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        margin: 20px;
+    }
+    input, button {
+        font-size: 14px;
+    }
+}
+
+/* 333333333333333333333333333333 */
+
+body {
+    margin: 0;
+    overflow: hidden;
+    background: radial-gradient(ellipse at center, #100518 0%, #020104 70%);
+    color: #00ffcc;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#info {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    color: rgba(0, 255, 204, 0.9);
+    font-size: 22px;
+    letter-spacing: 2px;
+    pointer-events: none;
+    z-index: 100;
+    text-shadow: 0 0 8px rgba(0, 255, 204, 0.7), 0 0 12px rgba(0, 255, 204, 0.5);
+    transition: opacity 2s ease-in-out 1s;
+}
+
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+#glitch-button {
+    position: absolute;
+    z-index: 101;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    color: #000000;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* #glitch-button::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: conic-gradient(from var(--angle), #020104, #ff00ff, #00ffcc, #ff00ff, #020104);
+    animation: rotateBorder 4s linear infinite;
+    z-index: -2;
+    border-radius: 8px;
+} */
+
+#glitch-button::after {
+    content: '';
+    position: absolute;
+    top: 2px; left: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background: rgba(0, 255, 204, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 6px;
+    z-index: -1;
+}
+
+@keyframes rotateBorder {
+    to {
+        --angle: 360deg;
+    }
+}
+
+#glitch-button:hover {
+    color: #080808;
+    box-shadow: 0 0 25px rgba(6, 6, 6, 0.5);
+}
+
+@media (max-width: 640px) {
+    #info { font-size: 18px; top: 15px; }
+    #info span { font-size: 12px; }
+    #glitch-button { font-size: 14px; padding: 20px 20px; bottom: 20px; }
+}
+
+#button-logout{
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    color: rgba(0, 255, 204, 0.9);
+    font-size: 22px;
+    letter-spacing: 2px;
+    pointer-events: none;
+    z-index: 100;
+    text-shadow: 0 0 8px rgba(0, 255, 204, 0.7), 0 0 12px rgba(0, 255, 204, 0.5);
+    transition: opacity 2s ease-in-out 1s;
+
+}
+
+#logout-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 102;
+    color: #cc0000;
+}
+

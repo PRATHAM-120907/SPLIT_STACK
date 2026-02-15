@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ group.name }} | Group Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* HEADER */
+        .header {
+            background-color: #075e54;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .group-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .group-desc {
+            font-size: 13px;
+            opacity: 0.7;
+        }
+
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .share-btn {
+            background-color: #25d366;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .end-trip-btn {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #share-status {
+            font-size: 12px;
+            color: #aaffaa;
+        }
+
+        /* CHAT AREA */
+        .chat-area {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .sent {
+            background-color: #dcf8c6;
+            color: black;
+            margin-left: auto;
+        }
+
+        .received {
+            background-color: #333;
+        }
+
+        .message-user {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+
+        /* FOOTER */
+        .footer {
+            background-color: #222;
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            border-top: 1px solid #444;
+        }
+
+        .input-field {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: none;
+            outline: none;
+            background-color: #333;
+            color: white;
+        }
+
+        .send-btn {
+            background-color: #25d366;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+    <div>
+        <div class="group-name">{{ group.name }}</div>
+        <div class="group-desc">{{ group.description }}</div>
+    </div>
+
+    <div class="header-buttons">
+        <button class="share-btn" id="share-btn">Share</button>
+        <span id="share-status"></span>
+
+        <!-- END TRIP BUTTON -->
+        <a href="{{ url_for('balances_page', group_id=group.id) }}">
+            <button class="end-trip-btn">End Trip</button>
+        </a>
+    </div>
+</div>
+
+<!-- CHAT AREA -->
+<div class="chat-area" id="chat-area">
+    {% for exp in expenses %}
+        <div class="message {% if exp.user_id == current_user.id %}sent{% else %}received{% endif %}">
+            <div class="message-user">{{ exp.user.name }}</div>
+            <div>₹ {{ exp.amount }}</div>
+            <div>{{ exp.description }}</div>
+        </div>
+    {% endfor %}
+</div>
+
+<!-- FOOTER -->
+<form class="footer" method="POST"
+      action="{{ url_for('add_expense', group_id=group.id) }}">
+    <input class="input-field" name="money" placeholder="Money" required>
+    <input class="input-field" name="place" placeholder="Place" required>
+    <button class="send-btn" type="submit">➤</button>
+</form>
+
+<!-- JAVASCRIPT -->
+<script>
+    // Auto-scroll chat
+    const chatArea = document.getElementById("chat-area");
+    chatArea.scrollTop = chatArea.scrollHeight;
+
+    // Share invite link
+    const shareBtn = document.getElementById("share-btn");
+    const shareStatus = document.getElementById("share-status");
+
+    const inviteLink = "{{ request.host_url }}join/{{ group.invite_code }}";
+
+    shareBtn.addEventListener("click", async () => {
+        try {
+            await navigator.clipboard.writeText(inviteLink);
+            shareStatus.textContent = "Copied!";
+            setTimeout(() => shareStatus.textContent = "", 2000);
+        } catch {
+            shareStatus.textContent = "Failed";
+        }
+    });
+</script>
+
+</body>
+</html>

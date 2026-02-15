@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Stack</title>
+
+    
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
+
+    <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.163.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.163.0/examples/jsm/"
+      }
+    }
+    </script>
+</head>
+
+<body>
+
+    <div id="info">
+        Let's Get you In..<br>
+        <span style="font-size: 14px; opacity: 0.8;">[DRAG MOUSE TO SHIFT PERSPECTIVE]</span>
+        
+    </div>
+    <div id="logout-container"><a href="{{url_for('logout')}}" id="logout-button">Logout</a></div>
+    
+    
+    <a href="{{url_for('create_group')}}" id="glitch-button">Group</a>
+
+    
+    <script type="module" src="{{ url_for('static', filename='grp.js') }}"></script>
+
+</body>
+</html>
